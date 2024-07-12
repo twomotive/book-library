@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Gentium Book Plus", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
+
+.container {
+    background-color: #C6AD8F;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 5rem;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.header {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #22333B;
+    color: #EAE0D5;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+.header h1 {
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #EAE0D5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #22333B;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search button {
+    padding: 10px 20px;
+    background-color: #22333B;
+    color: #EAE0D5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.search button:hover ,#add-book:hover {
+    background-color: #344955;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .search {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .search input[type="text"] {
+        width: 100%;
+        max-width: 300px;
+        margin-right: auto;
+    }
+
+    .button-group {
+        width: auto;
+    }
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#read-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#read-group label {
+    flex: 0 0 auto;
+}
+
+#add-book {
+    width: 80%;
+    padding: 10px;
+    background-color: #22333B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#close-dialog {
+    background-color: #C6AD8F;
+    color: #22333B;
+}
+
+#close-dialog:hover {
+    background-color: #22333B;
+    color: #EAE0D5;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.book-card {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #EAE0D5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-card h3 {
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 1.4rem;
+    color: #22333B;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.book-card button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #22333B;
+    color: #EAE0D5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-card button:hover {
+    background-color: #344955;
+}
+
+
+
+
+
+
