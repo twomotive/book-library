@@ -45,11 +45,17 @@ closeButton.addEventListener("click", () => {
     dialog.close();
 });
 
-function Book(author, title, page, isRead) {
-    this.author = author;
-    this.title = title;
-    this.page = page;
-    this.isRead = isRead;
+class Book {
+    constructor(author , title , page , isRead) {
+        this.author = author;
+        this.title = title;
+        this.page = page;
+        this.isRead = isRead;
+    }
+
+    get bookCard() {
+        return {author :this.author , title :this.title , page :this.page , isRead :this.isRead }
+    }
 }
 
 function addBookToLibrary(book) {
