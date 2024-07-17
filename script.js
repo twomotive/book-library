@@ -60,7 +60,6 @@ class Book {
 
 function addBookToLibrary(book) {
     myLibrary.unshift(book);
-    displayBooks();
 }
 
 form.addEventListener("submit", function (e) {
